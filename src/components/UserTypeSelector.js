@@ -1,6 +1,4 @@
 import React from 'react';
-import Customer from "./Customer"
-import Staff from "./Staff"
 import {useHistory} from "react-router"
 
 
@@ -14,8 +12,8 @@ const history = useHistory()
                 <h1>Welcome to Flatiron Coffee Roasters</h1>
                 <p>If you would like to order a coffee, please click customer! If you are staff, please click staff!</p>
                 <form>
-                  <button onClick={() => history.push('/Customer')}>Customer</button>
-                  <button onClick={() => history.push('/Staff')}>Staff</button>
+                  <button onClick={() => history.push('/customer')}>Customer</button>
+                  <button onClick={() => history.push('/staff')}>Staff</button>
                 </form>
               </div>
             </div>

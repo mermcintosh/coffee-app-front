@@ -35,7 +35,7 @@ const Customer = () => {
                          <option value="no cream">No Cream</option>
                          <option value="light cream">Light Cream</option>
                          <option value="medium cream">Medium Cream</option>
-                         <option value="heavy cream">Heavy Cream</option>
+                         <option value="extra cream">Extra Cream</option>
                     </select>
                 </td>
                 <td>
@@ -43,7 +43,7 @@ const Customer = () => {
                          <option value="no sugar">No Sugar</option>
                          <option value="light sugar">Light Sugar</option>
                          <option value="medium sugar">Medium Sugar</option>
-                         <option value="heavy sugar">Heavy Sugar</option>
+                         <option value="extra sugar">Extra Sugar</option>
                     </select>
                 </td>
                 <button>Add Drink</button>

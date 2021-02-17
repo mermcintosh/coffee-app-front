@@ -4,8 +4,7 @@ const Staff = () => {
     return(
     <div>
         <h2>Incoming Orders</h2>
-        <Orders/>
-
+        <Orders/>     
     </div>
     )
 }

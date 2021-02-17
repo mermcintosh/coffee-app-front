@@ -11,9 +11,9 @@ export default class Routes extends React.Component {
         return (
                 <Switch>
                     <Route exact path="/" component={UserTypeSelector} />
-                    <Route path="/Customer" component={Customer} />
-                    <Route path="/Staff" component={Staff} />
-                    <Route path="/Confirmation" component={Confirmation} />
+                    <Route path="/customer" component={Customer} />
+                    <Route path="/staff" component={Staff} />
+                    <Route path="/confirmation" component={Confirmation} />
                 </Switch> 
         )
     }
