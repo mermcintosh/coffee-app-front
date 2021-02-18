@@ -6,19 +6,22 @@ import OrderForm from "./OrderForm"
 const Staff = (props) => {
     const history = useHistory()
     const [currentCoffee, setCurrentCoffee] = useState(null)
-    const coffees = history.location.state.coffees
+    const [coffees, setCoffees] = useState(history.location.state.coffees)
 
-    useEffect(() => {
-        console.log(coffees.filter(result => result.id = currentCoffee))
-      });
+    // useEffect(() => {
+    //     console.log(coffees.filter(result => result.id = currentCoffee))
+    //   });
+
 
     return(
-    <div>
-        <OrderForm buttonText="Save Edit"/>
+    <div className="m-5">
+    
         <h2>Incoming Orders</h2>
-            <div className="d-flex">
+        
+        <OrderForm buttonText="Save Edit"/>
+            <div className="d-flex flex-wrap">
                 {coffees.map(
-                    (coffee)=> <Orders coffee={coffee} key={coffee.id} id={coffee.id} setCurrentCoffee={setCurrentCoffee}/>
+                    (coffee)=> <Orders coffee={coffee} key={coffee.id} id={coffee.id} setCurrentCoffee={setCurrentCoffee} coffees={coffees} setCoffees={setCoffees}/>
                 )} 
             </div>    
     </div>

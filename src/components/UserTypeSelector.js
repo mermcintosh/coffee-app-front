@@ -18,59 +18,19 @@ useEffect(() => {
   })
 }, [])
 
-// handleSubmit = (e) => {
 
-//   e.preventDefault();
 
-//   let newCoffee = {
-//     size: e.target.size.value,
-//     roast: e.target.roast.value,
-//     cream: e.target.cream.value,
-//     sugar: e.target.sugar.value,
-//   };
 
-//   let reqPackage = {
-//     method: 'POST',
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(newCoffee)
-//   }
- 
-//   fetch(API, reqPackage)
-//   .then(res => res.json())
-//   .then(newCoffee => {
-//     this.setState({
-//       coffees: [...state.coffees, newCoffee]
-//     })
-
-//   })
-
-//   e.target.reset()
-// };
-
-// handleDelete = (selectedCoffee) => {
-     
-//   fetch(`${URL}/${selectedCoffee.id}`, {
-//     method: 'DELETE'
-//   })
-//   .then(res => res.json())
-//   .then(() => {
-    
-//     this.setState({
-//       coffees: state.coffees.filter((coffee) => coffee != selectedCoffee)
-//     })
-//   })
-// }
 
 
 
   return (
-    <div>
-      <div>
-        <h1>Welcome to Flatiron Coffee Roasters</h1>
-          <button onClick={() => history.push({ pathname: '/customer', state: {coffees: coffees }})}>Customer</button>
-          <button onClick={() => history.push({ pathname: '/staff', state: {coffees: coffees }})}>Staff</button>
+    <div >
+      <div className="cover-page">
+        <h1>Welcome to</h1>
+        <h1>Flatiron Coffee Roasters</h1>
+          <button className="button" onClick={() => history.push({ pathname: '/customer', state: {coffees: coffees }})}>Customer</button>
+          <button className="button" onClick={() => history.push({ pathname: '/staff', state: {coffees: coffees }})}>Staff</button>
       </div>
     </div>
   );  
