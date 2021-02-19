@@ -7,7 +7,7 @@ const Orders = (props) => {
     const history = useHistory()
 
     const editCoffee = () => {
-        // props.setCurrentCoffee(props.coffee.id)
+        props.setCurrentCoffee(props.coffees.filter(coffee => coffee.id == props.coffee.id))
     }
 
     const handleDelete = (id) => {
@@ -29,14 +29,14 @@ const Orders = (props) => {
         <div className="card">
             <h3>Order Number - {props.coffee.id}</h3>
             <br/>
-            <h4>Size - {props.coffee.size}</h4>
+            <h3>Size - {props.coffee.size}</h3>
             <br/>
-                <h5>{props.coffee.roast} Roast</h5>
-                <h5>{props.coffee.cream}</h5>
-                <h5>{props.coffee.sugar}</h5>
+                <h4>{props.coffee.roast} Roast</h4>
+                <h4>{props.coffee.cream}</h4>
+                <h4>{props.coffee.sugar}</h4>
             
-
-            <button onClick={() => editCoffee()}>Edit Coffee</button>
+            <br/>
+            <button className="break" onClick={() => editCoffee()}>Edit Coffee</button>
             <button onClick={() => handleDelete(props.id)}>Complete Order</button>
         </div>
     )

@@ -18,19 +18,15 @@ useEffect(() => {
   })
 }, [])
 
-
-
-
-
-
-
   return (
-    <div >
-      <div className="cover-page">
-        <h1>Welcome to</h1>
-        <h1>Flatiron Coffee Roasters</h1>
-          <button className="button" onClick={() => history.push({ pathname: '/customer', state: {coffees: coffees }})}>Customer</button>
-          <button className="button" onClick={() => history.push({ pathname: '/staff', state: {coffees: coffees }})}>Staff</button>
+    <div className="front-page">
+      <div className="front-page-box">
+        {/* <h1 className="front-page-welcome-to">Welcome to</h1> */}
+        <h1 className="front-page-flatiron">Flatiron</h1>
+        <h1 className="front-page-coffee-roasters">Coffee Roasters</h1>
+        <br/>
+          <button className="button" onClick={() => history.push({ pathname: '/customer', state: {coffees: coffees }})}><span>Customer</span></button>
+          <button className="button" onClick={() => history.push({ pathname: '/staff', state: {coffees: coffees }})}><span>Staff</span></button>
       </div>
     </div>
   );  

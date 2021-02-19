@@ -14,9 +14,10 @@ const Customer = () => {
 
 
     return(
-        <div>
-        <h1>Create your perfect beverage below!</h1>
+        <div className="customer-page" >
+        <div className="customer-box"><h1>Create your perfect beverage below!</h1>
         <OrderForm setCoffees={setCoffees} coffees={coffees}/>
+        </div>
         </div>
     )
 }
