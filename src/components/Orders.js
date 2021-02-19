@@ -7,7 +7,13 @@ const Orders = (props) => {
     const history = useHistory()
 
     const editCoffee = () => {
-        props.setCurrentCoffee(props.coffees.filter(coffee => coffee.id == props.coffee.id))
+        props.setCurrentCoffee(
+            // size: props.coffee.size,
+            // roast: props.coffee.roast,
+            // cream: props.coffee.cream,
+            // sugar: props.coffee.sugar
+            props.coffee
+        )
     }
 
     const handleDelete = (id) => {

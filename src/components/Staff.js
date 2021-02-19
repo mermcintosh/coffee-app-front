@@ -8,13 +8,12 @@ const Staff = (props) => {
     const [currentCoffee, setCurrentCoffee] = useState(null)
     const [coffees, setCoffees] = useState(history.location.state.coffees)
 
-
     return(
     <div className="orders-page">
     
         <h2 className="incoming-orders">Incoming Orders</h2>
         
-            {currentCoffee && <EditForm currentCoffee={currentCoffee}/>}
+            {currentCoffee && <EditForm currentCoffee={currentCoffee} setCurrentCoffee={setCurrentCoffee} coffees={coffees} setCoffees={setCoffees}/>}
             <div className="d-flex flex-wrap">
                 {coffees.map(
                     (coffee)=>

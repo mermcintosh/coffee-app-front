@@ -8,15 +8,20 @@ const EditForm = (props) => {
     const history = useHistory()
     console.log("in the order form")
     console.log(props.currentCoffee)
-
+    
+    
     const [size, setSize] = useState("Small")
     const [roast, setRoast] = useState("Light")
     const [cream, setCream] = useState("Light Cream")
     const [sugar, setSugar] = useState("Light Sugar")
- 
+    
+    console.log(size)
+    console.log(roast)
+    console.log(cream)
+    console.log(sugar)
+
     const handleSubmit = (e) => {
         e.preventDefault()
-
         let updatedCoffee = {
                 size: size,
                 roast: roast,
@@ -25,7 +30,6 @@ const EditForm = (props) => {
               };
 
         let reqPackage = {
-                    // TODO update patch 
                     method: 'PATCH',
                     headers: {
                       "Content-Type": "application/json"
@@ -33,32 +37,20 @@ const EditForm = (props) => {
                     body: JSON.stringify(updatedCoffee)
                   }
 
-        fetch(API, reqPackage)
+        fetch(API + `/${props.currentCoffee.id}`, reqPackage)
         .then(res => res.json())
         .then(updatedCoffee => {
-        props.setCoffees({
-            coffees: props.coffees.map((coffee) =>
+            console.log(updatedCoffee)
+            let newCoffeeArray = props.coffees.map((coffee) =>
             coffee.id == updatedCoffee.id ? updatedCoffee : coffee)
+        props.setCoffees(newCoffeeArray)
         })
-        })
-
-        // fetch(`${URL}/${updatedDragon.id}`, reqPackage)
-        // .then(res=> res.json())
-        // .then(patchDragon => {
-          
-        //   this.setState({
-        //     dragons: this.state.dragons.map((dragon) =>
-        //         dragon.id == patchDragon.id ? patchDragon : dragon
-        //       ),
-                 
+       
         e.target.reset()
     }
     
         return(
-        <form className="form" onSubmit={(e) => {handleSubmit(e)}}>
-            {/* onClick={() => history.push({ pathname: '/'}) */}
-            {/* <button className="button" onClick={() => history.push({ pathname: '/customer', state: {coffees: coffees }})}>Customer</button> */}
-            
+        <form className="form" onSubmit={handleSubmit}>   
         <table>
             <tr>
                 <th>Size</th>
@@ -69,7 +61,7 @@ const EditForm = (props) => {
 
             <tr>
                 <td>
-                    <select onChange={e => setSize(e.target.value)} value={props.currentCoffee.size}>
+                    <select onChange={e => setSize(e.target.value)} defaultValue={props.currentCoffee.size}>
                         <option value="" disabled>Select size</option>
                          <option value="small">Small</option>
                          <option value="medium">Medium</option>
@@ -78,7 +70,7 @@ const EditForm = (props) => {
                     </select>
                 </td>
                 <td>
-                    <select onChange={e => setRoast(e.target.value)} value={props.currentCoffee.roast}>
+                    <select onChange={e => setRoast(e.target.value)} defaultValue={props.currentCoffee.roast}>
                         <option value="" disabled>Select roast</option>
                          <option value="light">Light</option>
                          <option value="medium">Medium</option>
@@ -88,7 +80,7 @@ const EditForm = (props) => {
                     </select>
                 </td>
                 <td>
-                    <select onChange={e => setCream(e.target.value)} value={props.currentCoffee.cream}>
+                    <select onChange={e => setCream(e.target.value)} defaultValue={props.currentCoffee.cream}>
                         <option value="" disabled>Select cream</option>
                          <option value="no cream">No Cream</option>
                          <option value="light cream">Light Cream</option>
@@ -97,7 +89,7 @@ const EditForm = (props) => {
                     </select>
                 </td>
                 <td>
-                    <select onChange={e => setSugar(e.target.value)} value={props.currentCoffee.sugar}>
+                    <select onChange={e => setSugar(e.target.value)} defaultValue={props.currentCoffee.sugar}>
                         <option value="" disabled>Select Sugar</option>
                          <option value="no sugar">No Sugar</option>
                          <option value="light sugar">Light Sugar</option>
